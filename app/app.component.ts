@@ -8,14 +8,17 @@ import { Task } from './task.model';
       <h1>Angular 2 ToDo List</h1>
       <div class="row">
         <div class="col-xs-6">
-        <task-list
-          [childTaskList]="masterTaskList"
-          (clickSender)="showDetails($event)"
-        ></task-list>
-        <edit-task
-          [childSelectedTask]="selectedTask"
-          (doneClickedSender)="finishedEditing()"
-        ></edit-task>
+          <task-list
+            [childTaskList]="masterTaskList"
+            (clickSender)="showDetails($event)"
+          ></task-list>
+          <edit-task
+            [childSelectedTask]="selectedTask"
+            (doneClickedSender)="finishedEditing()"
+          ></edit-task>
+          <new-task
+            (newTaskSender)="addTask($event)"
+          ></new-task>
         </div>
         <div class="col-xs-6">
           <pies></pies>
@@ -38,5 +41,8 @@ export class AppComponent {
   }
   finishedEditing() {
     this.selectedTask = null;
+  }
+  addTask(newTaskFromChild: Task) {
+    this.masterTaskList.push(newTaskFromChild);
   }
 }
