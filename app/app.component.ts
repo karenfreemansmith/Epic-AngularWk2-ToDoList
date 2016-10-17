@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from './task.model';
+import { Pie } from './pie.model';
 
 @Component({
   selector: 'my-app',
@@ -21,7 +22,14 @@ import { Task } from './task.model';
           ></new-task>
         </div>
         <div class="col-xs-6">
-          <pies></pies>
+          <pies-list
+            [childPieList]="favoritePies"
+            (clickPieSender)="showPie($event)"
+          ></pies-list>
+          <pie-edit  
+          [childSelectedPie]="selectedPie"
+          (updateClickedSender)="finishedUpdate()"
+          ></pie-edit>
         </div>
       </div>
     </div>
@@ -35,6 +43,11 @@ export class AppComponent {
       new Task("Rewatch all the Lord of the Rings movies.", 2),
       new Task("Do the laundry.", 3)
   ];
+  public favoritePies: Pie[] = [
+    new Pie("Apple"),
+    new Pie("Banana Cream"),
+    new Pie("Blackberry")
+  ];
   selectedTask: Task = null;
   showDetails(clickedTask: Task) {
     this.selectedTask = clickedTask;
@@ -44,5 +57,12 @@ export class AppComponent {
   }
   addTask(newTaskFromChild: Task) {
     this.masterTaskList.push(newTaskFromChild);
+  }
+  selectedPie: string = null;
+  showPie(clickedPie: string) {
+    this.selectedPie = clickedPie;
+  }
+  finishedUpdate() {
+    this.selectedPie = null;
   }
 }
