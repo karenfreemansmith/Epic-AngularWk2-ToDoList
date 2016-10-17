@@ -1,13 +1,12 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "rootDir": "app",
-    "out": "build/js/app.js"
-  },
-  "files": [
-    "app/to-do-create-tasks.ts",
-    "app/to-do-classes-interfaces.ts",
-    "app/to-do-listing-functions.ts",
-    "app/to-do-people.ts"
-    ]
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false
+  }
 }
