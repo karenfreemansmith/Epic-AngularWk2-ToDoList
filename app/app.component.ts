@@ -28,7 +28,7 @@ import { Pie } from './pie.model';
           ></pies-list>
           <pie-edit
             [childSelectedPie]="selectedPie"
-            (updateClickedSender)="finishedUpdate()"
+            (clickUpdateSender)="finishedUpdate()"
           ></pie-edit>
           <add-pie
             (newPieSender)="addPie($event)"

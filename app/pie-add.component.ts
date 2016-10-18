@@ -16,7 +16,7 @@ import { Pie } from './pie.model';
   `
 })
 
-export class NewPieComponent {
+export class PieAddComponent {
   @Output() newPieSender = new EventEmitter();
   addClicked(description: string) {
     var newPieToAdd: Pie = new Pie(description);

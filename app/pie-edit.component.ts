@@ -13,7 +13,6 @@ import { Pie } from './pie.model';
 })
 
 export class PieEditComponent {
-  //favoritePies: string[] = ["Apple", "Banana Cream", "Blackberry"];
   @Input() childSelectedPie: Pie;
   @Output() clickUpdateSender = new EventEmitter();
   updateButtonClick() {
