@@ -26,10 +26,13 @@ import { Pie } from './pie.model';
             [childPieList]="favoritePies"
             (clickPieSender)="showPie($event)"
           ></pies-list>
-          <pie-edit  
-          [childSelectedPie]="selectedPie"
-          (updateClickedSender)="finishedUpdate()"
+          <pie-edit
+            [childSelectedPie]="selectedPie"
+            (updateClickedSender)="finishedUpdate()"
           ></pie-edit>
+          <add-pie
+            (newPieSender)="addPie($event)"
+          ></add-pie>
         </div>
       </div>
     </div>
@@ -64,5 +67,8 @@ export class AppComponent {
   }
   finishedUpdate() {
     this.selectedPie = null;
+  }
+  addPie(newPieFromChild: Pie) {
+    this.favoritePies.push(newPieFromChild);
   }
 }

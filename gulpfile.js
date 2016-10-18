@@ -81,6 +81,12 @@ gulp.task('sassBuild', function() {
     .pipe(gulp.dest('./build/css'));
 });
 
+////////////////////// IMAGES //////////////////////
+gulp.task('staticImages', function() {
+  return gulp.src('./resources/images/*.*')
+    .pipe(gulp.dest('./build/images'));
+});
+
 ////////////////////// SERVER //////////////////////
 gulp.task('serve', ['build'], function() {
   browserSync.init({
@@ -93,6 +99,7 @@ gulp.task('serve', ['build'], function() {
   gulp.watch(['*.html'], ['htmlBuild']); // html changes, reload.
   gulp.watch(['resources/styles/*.css', 'resources/styles/*.scss'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
   gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
+  gulp.watch(['resources/images/*.*'], ['staticImages']);
 });
 
 gulp.task('jsBuild', function(){
