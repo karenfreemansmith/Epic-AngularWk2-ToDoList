@@ -1,6 +1,26 @@
 body {
-  background: #b8f9c0;
+  background: #b8f9c0 url("../images/flower-border.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  margin-top: 250px;
+  margin-left: 250px;
 }
 h1 {
   color: #f23edd;
+  text-align: center;
+  font-size: 4em;
+  font-family: 'Cookie', cursive;
+}
+
+h3 {
+  font-family: 'Cookie', cursive;
+  color: #f23edd;
+  font-size: 2.5em;
+}
+
+.filter {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  line-height: 1.5;
 }

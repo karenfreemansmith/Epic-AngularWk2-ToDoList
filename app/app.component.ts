@@ -7,20 +7,7 @@ import { Pie } from './pie.model';
   template: `
     <div class="container">
       <h1>Angular 2 ToDo List</h1>
-      <div class="row">
-        <div class="col-xs-6">
-          <task-list
-            [childTaskList]="masterTaskList"
-            (clickSender)="showDetails($event)"
-          ></task-list>
-          <edit-task
-            [childSelectedTask]="selectedTask"
-            (doneClickedSender)="finishedEditing()"
-          ></edit-task>
-          <new-task
-            (newTaskSender)="addTask($event)"
-          ></new-task>
-        </div>
+        <div class="row">
         <div class="col-xs-6">
           <pies-list
             [childPieList]="favoritePies"
@@ -34,6 +21,20 @@ import { Pie } from './pie.model';
             (newPieSender)="addPie($event)"
           ></add-pie>
         </div>
+        <div class="col-xs-6">
+          <task-list
+            [childTaskList]="masterTaskList"
+            (clickSender)="showDetails($event)"
+          ></task-list>
+          <edit-task
+            [childSelectedTask]="selectedTask"
+            (doneClickedSender)="finishedEditing()"
+          ></edit-task>
+          <new-task
+            (newTaskSender)="addTask($event)"
+          ></new-task>
+        </div>
+
       </div>
     </div>
   `
