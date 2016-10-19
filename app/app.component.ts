@@ -42,10 +42,10 @@ import { Pie } from './pie.model';
 
 export class AppComponent {
   public masterTaskList: Task[] = [
-      new Task("Create To-Do List app.", 0),
-      new Task("Learn Kung Fu.", 1),
-      new Task("Rewatch all the Lord of the Rings movies.", 2),
-      new Task("Do the laundry.", 3)
+      new Task("Create To-Do List app.", 0, "high"),
+      new Task("Learn Kung Fu.", 1, "medium"),
+      new Task("Rewatch all the Lord of the Rings movies.", 2, "low"),
+      new Task("Do the laundry.", 3, "medium")
   ];
   public favoritePies: Pie[] = [
     new Pie("Apple"),
