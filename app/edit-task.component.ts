@@ -11,8 +11,12 @@ import { Task } from './task.model';
         <input [(ngModel)]="childSelectedTask.description">
       </div>
       <div>
-        <label>Enter Task ID:</label>
-        <input [(ngModel)]="childSelectedTask.id">
+        <label>Select Task Priority:</label>
+        <select (change)="onChange($event.target.value)" class="filter">
+          <option value = "low">Low</option>
+          <option value = "medium">Medium</option>
+          <option value = "high" selected="selected">High</option>
+        </select>
         <button (click)="doneClicked()">Done</button>
       </div>
     </div>
@@ -22,6 +26,9 @@ import { Task } from './task.model';
 export class EditTaskComponent {
   @Input() childSelectedTask: Task;
   @Output() doneClickedSender = new EventEmitter();
+  onChange(optionFromMenu) {
+    this.childSelectedTask.priority = optionFromMenu;
+  }
   doneClicked() {
     this.doneClickedSender.emit();
   }
